@@ -1,0 +1,14 @@
+[package]
+name = "ngit"
+version = "1.0.0"
+edition = "2021"
+description = "cli for code collaboration over nostr"
+authors = ["DanConwayDev <DanConwayDev@protonmail.com>"]
+readme = "README.md"
+homepage = "https://github.com/CodeCollaborationNostr/ngit"
+repository = "https://github.com/CodeCollaborationNostr/ngit"
+license = "MIT"
+keywords = ["nostr", "git"]
+categories = ["command-line-utilities","git"]
+
+[dependencies]
