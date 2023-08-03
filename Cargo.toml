@@ -12,3 +12,5 @@ keywords = ["nostr", "git"]
 categories = ["command-line-utilities","git"]
 
 [dependencies]
+clap = { version = "4.3.19", features = ["derive"] }
+dialoguer = "0.10.4"
