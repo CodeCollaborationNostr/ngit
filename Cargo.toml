@@ -13,4 +13,6 @@ categories = ["command-line-utilities","git"]
 
 [dependencies]
 clap = { version = "4.3.19", features = ["derive"] }
+confy = "0.5.1"
 dialoguer = "0.10.4"
+serde = { version = "1.0.181", features = ["derive"] }

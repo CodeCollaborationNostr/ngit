@@ -1,6 +1,8 @@
 use clap::Args;
 use dialoguer::{theme::ColorfulTheme, Input};
 
+use crate::config::{self, save_conifg};
+
 struct InitArgs {
     name: String,
     description: Option<String>,
@@ -34,20 +36,27 @@ pub struct SubCommandArgs {
 pub fn launch_init(
     command_args: &SubCommandArgs,
 ) {
-    let args = getInitArgs(command_args);
+    let args = get_init_args(command_args);
+
+    let mut cfg = config::load_config();
+
     // call testable functions here
     println!(
-        "{}, {}",
+        "{}, {}, default relays: {:?}",
         args.name,
         match args.description {
             None => "".to_string(),
             Some(description) => description,
-        }
+        },
+        cfg.default_relays,
     );
+
+    cfg.default_relays[0] = "wss://localhost:80".to_string();
+    save_conifg(&cfg);
 
 }
 
-fn getInitArgs(command_args:&SubCommandArgs) -> InitArgs {
+fn get_init_args(command_args:&SubCommandArgs) -> InitArgs {
 
     let repo_name: String = match &command_args.name {
         Some(name) => name.clone(),
